@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.1.2</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>org.yiqr.hibiscus</groupId>
+    <artifactId>hibiscus</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>hibiscus</name>
+    <description>hibiscus</description>
+
+    <developers>
+        <developer>
+            <id>rose</id>
+            <email>iyicaicai@gmail.com</email>
+        </developer>
+    </developers>
+
+    <modules>
+        <module>hibiscus-common</module>
+        <module>hibiscus-starter</module>
+        <module>hibiscus-gateway</module>
+        <module>hibiscus-demo</module>
+        <module>hibiscus-register</module>
+        <module>hibiscus-mgt</module>
+        <module>hibiscus-config</module>
+    </modules>
+
+    <properties>
+        <java.version>17</java.version>
+        <spring-cloud.version>2022.0.3</spring-cloud.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <skipTests>true</skipTests>
+
+
+        <!-- <jackson-annotations.version>2.15.2</jackson-annotations.version> -->
+        <guava.version>31.1-jre</guava.version>
+        <commons-codec.version>1.15</commons-codec.version>
+        <commons-io.version>2.11.0</commons-io.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
+        <commons-collections.version>4.4</commons-collections.version>
+        <springfox.version>3.0.0</springfox.version>
+        <mysql-connector.version>8.0.32</mysql-connector.version>
+        <redisson.version>3.20.1</redisson.version>
+        <quartz.version>2.3.2</quartz.version>
+
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- <dependency> -->
+            <!--     <groupId>com.fasterxml.jackson.core</groupId> -->
+            <!--     <artifactId>jackson-annotations</artifactId> -->
+            <!--     &lt;!&ndash; <version>${jackson-annotations.version}</version> &ndash;&gt; -->
+            <!-- </dependency> -->
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${commons-codec.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${commons-collections.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-core</artifactId>
+                <version>${springfox.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson</artifactId>
+                <version>${redisson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.quartz-scheduler</groupId>
+                <artifactId>quartz</artifactId>
+                <version>${quartz.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.quartz-scheduler</groupId>
+                <artifactId>quartz-jobs</artifactId>
+                <version>${quartz.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+
+
+
+
+
+    <!-- <dependencies> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.springframework.boot</groupId> -->
+    <!--         <artifactId>spring-boot-starter-actuator</artifactId> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.springframework.boot</groupId> -->
+    <!--         <artifactId>spring-boot-starter-amqp</artifactId> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.springframework.boot</groupId> -->
+    <!--         <artifactId>spring-boot-starter-data-redis</artifactId> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.springframework.boot</groupId> -->
+    <!--         <artifactId>spring-boot-starter-security</artifactId> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.springframework.boot</groupId> -->
+    <!--         <artifactId>spring-boot-starter-webflux</artifactId> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>io.micrometer</groupId> -->
+    <!--         <artifactId>micrometer-tracing-bridge-brave</artifactId> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>io.zipkin.reporter2</groupId> -->
+    <!--         <artifactId>zipkin-reporter-brave</artifactId> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.mybatis.spring.boot</groupId> -->
+    <!--         <artifactId>mybatis-spring-boot-starter</artifactId> -->
+    <!--         <version>3.0.2</version> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.springframework.cloud</groupId> -->
+    <!--         <artifactId>spring-cloud-bus</artifactId> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.springframework.cloud</groupId> -->
+    <!--         <artifactId>spring-cloud-config-server</artifactId> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.springframework.cloud</groupId> -->
+    <!--         <artifactId>spring-cloud-starter</artifactId> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.springframework.cloud</groupId> -->
+    <!--         <artifactId>spring-cloud-starter-circuitbreaker-reactor-resilience4j</artifactId> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.springframework.cloud</groupId> -->
+    <!--         <artifactId>spring-cloud-starter-config</artifactId> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.springframework.cloud</groupId> -->
+    <!--         <artifactId>spring-cloud-starter-gateway</artifactId> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.springframework.cloud</groupId> -->
+    <!--         <artifactId>spring-cloud-starter-loadbalancer</artifactId> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.springframework.cloud</groupId> -->
+    <!--         <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.springframework.cloud</groupId> -->
+    <!--         <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.springframework.cloud</groupId> -->
+    <!--         <artifactId>spring-cloud-starter-openfeign</artifactId> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.springframework.cloud</groupId> -->
+    <!--         <artifactId>spring-cloud-stream</artifactId> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.springframework.cloud</groupId> -->
+    <!--         <artifactId>spring-cloud-stream-binder-kafka</artifactId> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.springframework.cloud</groupId> -->
+    <!--         <artifactId>spring-cloud-stream-binder-rabbit</artifactId> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.springframework.kafka</groupId> -->
+    <!--         <artifactId>spring-kafka</artifactId> -->
+    <!--     </dependency> -->
+
+    <!--     <dependency> -->
+    <!--         <groupId>org.springframework.boot</groupId> -->
+    <!--         <artifactId>spring-boot-devtools</artifactId> -->
+    <!--         <scope>runtime</scope> -->
+    <!--         <optional>true</optional> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>com.mysql</groupId> -->
+    <!--         <artifactId>mysql-connector-j</artifactId> -->
+    <!--         <scope>runtime</scope> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.postgresql</groupId> -->
+    <!--         <artifactId>postgresql</artifactId> -->
+    <!--         <scope>runtime</scope> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.projectlombok</groupId> -->
+    <!--         <artifactId>lombok</artifactId> -->
+    <!--         <optional>true</optional> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.springframework.boot</groupId> -->
+    <!--         <artifactId>spring-boot-starter-test</artifactId> -->
+    <!--         <scope>test</scope> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>io.projectreactor</groupId> -->
+    <!--         <artifactId>reactor-test</artifactId> -->
+    <!--         <scope>test</scope> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.mybatis.spring.boot</groupId> -->
+    <!--         <artifactId>mybatis-spring-boot-starter-test</artifactId> -->
+    <!--         <version>3.0.2</version> -->
+    <!--         <scope>test</scope> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.springframework.amqp</groupId> -->
+    <!--         <artifactId>spring-rabbit-test</artifactId> -->
+    <!--         <scope>test</scope> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.springframework.cloud</groupId> -->
+    <!--         <artifactId>spring-cloud-stream-test-binder</artifactId> -->
+    <!--         <scope>test</scope> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.springframework.kafka</groupId> -->
+    <!--         <artifactId>spring-kafka-test</artifactId> -->
+    <!--         <scope>test</scope> -->
+    <!--     </dependency> -->
+    <!--     <dependency> -->
+    <!--         <groupId>org.springframework.security</groupId> -->
+    <!--         <artifactId>spring-security-test</artifactId> -->
+    <!--         <scope>test</scope> -->
+    <!--     </dependency> -->
+    <!-- </dependencies> -->
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <pluginManagement>
+            <plugins>
+                <!--        测试插件        -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <configuration>
+                        <skipTests>${skipTests}</skipTests>
+                    </configuration>
+                </plugin>
+                <!--        项目代码编译        -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                    </configuration>
+                </plugin>
+                <!--       打jar包         -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${maven-jar-plugin.version}</version>
+                    <configuration>
+                        <archive>
+                            <index>true</index>
+                            <manifest>
+                                <addClasspath>true</addClasspath>
+                            </manifest>
+                            <manifestEntries>
+                                <mode>development</mode>
+                                <url>${project.url}</url>
+                                <key>value</key>
+                            </manifestEntries>
+                        </archive>
+                    </configuration>
+                </plugin>
+
+                <!--源码打包-->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>${maven-source-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+
+        <testResources>
+            <testResource>
+                <directory>src/test/resources/</directory>
+            </testResource>
+        </testResources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>src/main/generated</source>
+                                <source>src/main/java</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

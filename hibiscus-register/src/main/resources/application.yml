@@ -1,0 +1,32 @@
+server:
+  port: 10001
+spring:
+  application:
+    name: hibiscus-register
+  profiles:
+    active: dev
+#  security:
+#    user:
+#      name: register
+#      password: 123123
+eureka:
+  instance:
+    hostname: 127.0.0.1
+    lease-renewal-interval-in-seconds: 20
+    lease-expiration-duration-in-seconds: 60
+    prefer-ip-address: true
+  client:
+    # 表示自己就是注册中心，不用注册自己
+    registerWithEureka: false
+    # false表示自己就是注册中心，不用去注册中心获取其他服务的地址
+    fetchRegistry: false
+    instance-info-replication-interval-seconds: 30
+    service-url:
+#      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+app:
+  info:
+    description: 注册机
+logging:
+  file:
+    path: logs/
